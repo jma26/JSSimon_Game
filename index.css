@@ -80,11 +80,55 @@
 
 .container {
     position: absolute;
-    margin-left: -235px;
-    margin-top: -235px;
+    margin-left: -225px;
+    margin-top: -225px;
     left: 50%;
     top: 50%;
-    width: 470px;
-    height: 470px;
+    width: 450px;
+    height: 450px;
     background-color: black;
+}
+
+#count {
+    width: 100px;
+    text-align: center;
+    border-radius: 10%;
+    font-size: 21px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#strict {
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    display: inline-block;
+}
+
+#strictButton {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+#restart {
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    display: inline-block;
+}
+
+#restartButton {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
 }
