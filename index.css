@@ -145,3 +145,8 @@
 #a:active, #b:active, #c:active, #d:active {
     opacity: 1;
 }
+
+/* Level Generator */
+.generator {
+    font-size: 500px;
+}
