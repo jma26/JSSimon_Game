@@ -15,6 +15,7 @@
     line-height: 0px;
     border: 182px solid;
     border-color:#0b7000;
+    opacity: 0.7;
     border-right: none;
     border-bottom: none;
     border-top-left-radius: 182px;
@@ -30,6 +31,7 @@
     line-height: 0px;
     border: 182px solid;
     border-color: #c30800;
+    opacity: 0.7;
     border-bottom: none;
     border-left: none;
     border-top-right-radius: 182px;
@@ -45,6 +47,7 @@
     line-height: 0px;
     border: 182px solid;
     border-color: #c3b400;
+    opacity: 0.7;
     border-top: none;
     border-left: none;
     border-bottom-right-radius: 182px;
@@ -60,6 +63,7 @@
     line-height: 0px;
     border: 182px solid;
     border-color: #196d85;
+    opacity: 0.7;
     border-top: none;
     border-left: none;
     border-bottom-left-radius: 182px;
@@ -131,4 +135,13 @@
     border-radius: 50%;
     display: block;
     margin: 0 auto;
+}
+
+/* Button highlight on click */
+#a:hover, #b:hover, #c:hover, #d:hover, button:hover  {
+    cursor: pointer;
+}
+
+#a:active, #b:active, #c:active, #d:active {
+    opacity: 1;
 }
