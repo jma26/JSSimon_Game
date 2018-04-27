@@ -105,6 +105,15 @@
     border: 2px solid black;
 }
 
+#countTitle {
+    font-size: 18px;
+    width: 100px;
+    position: absolute;
+    left: 25%;
+    text-align: center;
+    top: 14%;
+}
+
 #strict {
     font-size: 18px;
     position: absolute;
