@@ -23,22 +23,22 @@ function playBack(sequence) {
         if (sequence[i] === RED) {
             $("#red").css("opacity", "1");
             setTimeout(function() {
-                $("#red").css("opacity", "0.7");
+                $("#red").removeAttr("style");
             }, 1000)
         } else if (sequence[i] === BLUE) {
             $("#blue").css("opacity", "1");
             setTimeout(function() {
-                $("#blue").css("opacity", "0.7");
+                $("#blue").removeAttr("style");
             }, 1000)
         } else if (sequence[i] === GREEN) {
             $("#green").css("opacity", "1");
             setTimeout(function() {
-                $("#green").css("opacity", "0.7");
+                $("#green").removeAttr("style");
             }, 1000)
         } else if (sequence[i] === YELLOW) {
             $("#yellow").css("opacity", "1");
             setTimeout(function() {
-                $("#yellow").css("opacity", "0.7");
+                $("#yellow").removeAttr("style");
             }, 1000)
         }
     }
