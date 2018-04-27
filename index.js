@@ -8,12 +8,26 @@ const audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.
 const audioBlue = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
 const audioRed = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
 const audioYellow = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
+const audioError = new Audio("https://soundbible.com/mp3/Female_Scream_Horror-NeoPhyTe-138499973.mp3");
 
 function startGame() {
     if (!simon.sequence.length) {
         $("#count").text(++simon.level);
         simon.nextSequence();
     }
+}
+
+function restart() {
+    // Stop everything if restarting & restart all values
+    if (interal) {
+        clearInterval(interval);
+    }
+    simon.level = 0;
+    alert("Game restarted");
+    simon.sequence = [];
+    simon.step = 0;
+    $("#count").text(simon.level);
+
 }
 
 function playBack(sequence) {
@@ -68,6 +82,7 @@ var simon = {
             } else {
                 // Lose condition
                 alert("Wrong sequence!!");
+                audioError.play();
                 simon.level = 0;
                 $("#count").text(simon.level);
                 simon.sequence = [];
@@ -110,6 +125,9 @@ $(document).ready(function() {
         simon.sendColor(YELLOW);
         audioYellow.play();
     });
+    $("#restartButton").click(function() {
+        audioError.play();
+    })
 })
 
 
