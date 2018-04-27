@@ -3,14 +3,36 @@ const BLUE = "BLUE";
 const YELLOW = "YELLOW";
 const GREEN = "GREEN";
 
-var simon = {
+function startGame() {
+    if (!simon.sequence.length) {
+        simon.nextSequence();
+    }
+}
+
+var simon = { 
     sendColor: function(color) {
-        if (simon.sequence.length === 0) {
-            // start a new game
+        if (simon.sequence.length) {
+            if (color === simon.sequence[simon.step]) {
+                // go to the next step
+                if (simon.step === simon.sequence.length - 1) {
+                    console.log("sequence complete!");
+                    simon.step = 0;
+                    simon.nextSequence();
+                } else {
+                    simon.step++;
+                }
+            } else {
+                // Lose condition
+                alert("Wrong sequence!!");
+                simon.sequence = [];
+                simon.step = 0;
+            }
         }
+        console.log("Color pressed: ", color);
     },
     colors: [RED, BLUE, YELLOW, GREEN],
     sequence: [],
+    step: 0,
     nextSequence: function() {
         var nextColor = simon.colors[Math.floor(Math.random() * simon.colors.length)];
         simon.sequence.push(nextColor);
