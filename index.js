@@ -2,6 +2,7 @@ const RED = "RED";
 const BLUE = "BLUE";
 const YELLOW = "YELLOW";
 const GREEN = "GREEN";
+var interal;
 
 const audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
 const audioBlue = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
@@ -11,6 +12,35 @@ const audioYellow = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4
 function startGame() {
     if (!simon.sequence.length) {
         simon.nextSequence();
+    }
+}
+
+function playBack(sequence) {
+    if (simon.counter === simon.sequence.length - 1) {
+        clearInterval(interval);
+    } 
+    for (let i = 0; i < sequence.length; i++) {
+        if (sequence[i] === RED) {
+            $("#red").css("opacity", "1");
+            setTimeout(function() {
+                $("#red").css("opacity", "0.7");
+            }, 1000)
+        } else if (sequence[i] === BLUE) {
+            $("#blue").css("opacity", "1");
+            setTimeout(function() {
+                $("#blue").css("opacity", "0.7");
+            }, 1000)
+        } else if (sequence[i] === GREEN) {
+            $("#green").css("opacity", "1");
+            setTimeout(function() {
+                $("#green").css("opacity", "0.7");
+            }, 1000)
+        } else if (sequence[i] === YELLOW) {
+            $("#yellow").css("opacity", "1");
+            setTimeout(function() {
+                $("#yellow").css("opacity", "0.7");
+            }, 1000)
+        }
     }
 }
 
@@ -38,9 +68,15 @@ var simon = {
     colors: [RED, BLUE, YELLOW, GREEN],
     sequence: [],
     step: 0,
+    counter: 0,
     nextSequence: function() {
         var nextColor = simon.colors[Math.floor(Math.random() * simon.colors.length)];
         simon.sequence.push(nextColor);
+        interval = setInterval(function() {
+            console.log("Counting up:  ", simon.counter);
+            playBack(simon.sequence);
+            simon.counter++;
+        }, 1500);
         console.log("The sequence ", simon.sequence);
     }
 };
