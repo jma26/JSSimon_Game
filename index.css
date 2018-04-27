@@ -154,3 +154,8 @@
 #green:active, #red:active, #blue:active, #yellow:active {
     opacity: 1;
 }
+
+/* Strict Button Color */
+.strictColor {
+    background-color: red;
+}
