@@ -3,6 +3,11 @@ const BLUE = "BLUE";
 const YELLOW = "YELLOW";
 const GREEN = "GREEN";
 
+const audioGreen = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+const audioBlue = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+const audioRed = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+const audioYellow = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
+
 function startGame() {
     if (!simon.sequence.length) {
         simon.nextSequence();
@@ -43,15 +48,19 @@ var simon = {
 $(document).ready(function() {
     $("#green").click(function() {
         simon.sendColor(GREEN);
+        audioGreen.play();
     });
     $("#red").click(function() {
         simon.sendColor(RED);
+        audioRed.play();
     });
     $("#blue").click(function() {
         simon.sendColor(BLUE);
+        audioBlue.play();
     });
     $("#yellow").click(function() {
         simon.sendColor(YELLOW);
+        audioYellow.play();
     });
 })
 
