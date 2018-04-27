@@ -3,6 +3,11 @@
     padding: 0px;
 }
 
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
 .simon {
     position: relative;
 }
@@ -87,7 +92,7 @@
     margin-left: -225px;
     margin-top: -225px;
     left: 50%;
-    top: 50%;
+    top: 40%;
     width: 450px;
     height: 450px;
     background-color: black;
@@ -144,6 +149,14 @@
     border-radius: 50%;
     display: block;
     margin: 0 auto;
+}
+
+#startGame {
+    border-radius: 3px;
+    width: 100px;
+    position: absolute;
+    left: 26%;
+    top: 75%;
 }
 
 /* Button highlight on click */
