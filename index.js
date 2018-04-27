@@ -27,14 +27,24 @@ function restart() {
     simon.sequence = [];
     simon.step = 0;
     $("#count").text(simon.level);
+}
 
+function strictMode() {
+    if ($("#strictButton").hasClass("strictColor")) {
+        $("#strictButton").removeClass("strictColor");
+        simon.strict = false
+    } else {
+        $("#strictButton").addClass("strictColor");
+        simon.strict = true;
+    }
+    console.log(simon.strict);
 }
 
 function playBack(sequence) {
 
     interval = setInterval(function() {
         // Case to stop setInterval
-        if (simon.counter === simon.sequence.length - 1) {
+        if (simon.counter >= simon.sequence.length - 1) {
             console.log("We are at the end of the sequence", simon.counter);
             clearInterval(interval);
         }
@@ -80,22 +90,33 @@ var simon = {
                     simon.step++;
                 }
             } else {
-                // Lose condition
-                alert("Wrong sequence!!");
-                audioError.play();
-                simon.level = 0;
-                $("#count").text(simon.level);
-                simon.sequence = [];
-                simon.step = 0;
-            }
+                // Lose condition with strict mode on
+                if (simon.strict === true) {
+                    audioError.play();
+                    alert("Wrong sequence! Restart over- Strict mode on");
+                    simon.sequence = [];
+                    simon.step = 0;
+                    simon.level = 0;
+                    $("#count").text(simon.level);
+                } else {     
+                    // Lose condition with strict mode off
+                    audioError.play();
+                    clearInterval(interval);
+                    alert("Wrong sequence!! Try again");
+                    simon.step = 0;
+                    simon.counter = 0;
+                    playBack(simon.sequence);
+                }
+            } 
+            console.log("Color pressed: ", color);
         }
-        console.log("Color pressed: ", color);
     },
     colors: [RED, BLUE, YELLOW, GREEN],
     sequence: [],
     level: 0,
     step: 0,
     counter: 0,
+    strict: false,
     nextSequence: function() {
         var nextColor = simon.colors[Math.floor(Math.random() * simon.colors.length)];
         simon.sequence.push(nextColor);
